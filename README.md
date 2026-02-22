@@ -1,25 +1,74 @@
-Built and Deployed a Single-Tier Architecture on AWS
-As part of developing my cloud engineering foundations, I designed and deployed a working single-tier architecture on AWS.
-Hypothetical Real-Life Scenario
-A small local restaurant needs a simple public website to display opening hours and a daily menu — no database, no complex backend, just a lightweight and cost-effective solution.
-🔹 Architecture Flow
-User → Internet → Internet Gateway → Public Subnet → EC2 (Apache Web Server)
-🔹 What I Implemented
-Launched an Amazon Linux EC2 instance (t2.micro)
-Used a public subnet within the default VPC
-Verified route table configuration (0.0.0.0/0 → Internet Gateway)
-Configured security groups:
-HTTP (80) open to the public
-SSH (22) restricted to my IP
-Installed and configured Apache on Linux
-Deployed a custom static HTML “restaurant menu” page
-🔹 What This Strengthened
-This project helped solidify my understanding of:
-What makes a subnet truly “public”
-The role of route tables vs security groups
-How traffic flows from the internet to an EC2 instance
-🔹 Key Takeaway
-Single-tier architecture is simple and cost-effective, but introduces a single point of failure — if the EC2 instance fails, the entire site becomes unavailable.
+WS Single-Tier Architecture Deployment
+📌 Overview
 
-This task really helped me visualise how the different components within a VPC work together — from route tables directing traffic, to security groups controlling access, and how an Internet Gateway enables public connectivity.
-Building it hands-on made the flow of traffic much clearer than just reading about it.
+This project demonstrates the deployment of a single-tier web architecture using AWS.
+
+The solution hosts a static restaurant website on an Amazon EC2 instance running Apache within a public subnet.
+
+🏗 Architecture Flow
+
+User → Internet → Internet Gateway → Public Subnet → EC2 (Apache Web Server)
+
+🛠 Services Used
+
+Amazon EC2 (t2.micro)
+
+Amazon VPC (default)
+
+Internet Gateway
+
+Route Tables
+
+Security Groups
+
+Apache (httpd)
+
+Amazon Linux 2
+
+🔐 Security Configuration
+
+HTTP (Port 80) open to public
+
+SSH (Port 22) restricted to my IP
+
+Principle of least privilege applied
+
+🚀 Deployment Steps
+
+Launched EC2 instance in default VPC
+
+Configured security group rules
+
+Installed and started Apache
+
+Deployed custom HTML webpage
+
+Verified connectivity and routing
+
+📚 Key Learnings
+
+What makes a subnet public
+
+Route table role in internet connectivity
+
+Difference between security groups and routing
+
+Troubleshooting SSH connectivity
+
+⚠ Limitations
+
+Single point of failure
+
+No auto-scaling
+
+No load balancing
+
+🔄 Future Improvements
+
+Add Elastic IP
+
+Add CloudWatch monitoring
+
+Upgrade to multi-tier architecture
+
+Convert deployment to Infrastructure as Code (Terraform)
